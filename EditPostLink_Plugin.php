@@ -98,7 +98,8 @@ class EditPostLink_Plugin extends EditPostLink_LifeCycle {
 		}
 
 		public function showEditPostLink( $content ) {
-			if ( is_user_logged_in() && current_user_can( 'edit_post' ) ) {
+			$user = wp_get_current_user();
+			if ( is_user_logged_in() && current_user_can( 'edit_post' ) || is_user_logged_in() && in_array( 'revisor', (array) $user->roles) {
 				if ( $this->getOption( 'edit-post-link-position' ) === __('Above Content', 'edit-post-link') ) {
 					$content = sprintf(
 							'<p><a class="edit-post-link" href="%s" target="_blank">%s</a></p>%s',
