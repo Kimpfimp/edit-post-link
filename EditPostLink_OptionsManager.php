@@ -176,6 +176,8 @@ class EditPostLink_OptionsManager {
 				return 'publish_pages';
 			case 'Author':
 				return 'publish_posts';
+			case 'Revisor':
+				return 'edit_posts';
 			case 'Contributor':
 				return 'edit_posts';
 			case 'Subscriber':
